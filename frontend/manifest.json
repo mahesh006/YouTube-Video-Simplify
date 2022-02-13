@@ -1,0 +1,25 @@
+{
+    "name": "YouTube Video Simplify",
+    "version": "1.0.0",
+    "manifest_version": 2,
+  
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_icon": "icons/edit.png",
+        "default_title": "Text Simplify",
+        "default_popup": "src/popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["js/content.js"],
+            "all_frames": true
+        }
+    ],
+
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com  https://cdn.jsdelivr.net;  object-src 'self'",
+    "permissions": ["activeTab", "storage", "unlimitedStorage"]
+}
